@@ -3,12 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const api = 'http://www.omdbapi.com/?';
-export const apiKey = 'apikey=114c968f&';
+export const apiKey = 'apikey=114c968f&type=movie&';
 
 export const environment = {
   production: false,
   defaultSearch: `${api}${apiKey}s=`,
-  titleSearch: `${api}${apiKey}t=`,
+  idSearch: `${api}${apiKey}i=`,
 };
 
 /*

@@ -1,11 +1,26 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Search for movies" [formControl]="searchFormControl" [errorStateMatcher]="matcher" (keyup)="onKey($event)">
-    <mat-hint>Errors appear instantly!</mat-hint>
-    <mat-error *ngIf="searchFormControl.hasError('required')">
-      Movie title is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
-</form>
-
-<app-movie-list [search]='moviesList'></app-movie-list>
+<div class="example-container">
+  <h1>Movie Library</h1>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Search for movies" [formControl]="searchFormControl" [errorStateMatcher]="matcher" (keyup)="onKey($event)">
+      <mat-error *ngIf="searchFormControl.hasError('required')">
+        Movie title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<mat-grid-list cols="4" rowHeight="1:2" *ngIf="moviesList">
+  <mat-grid-tile *ngFor="let movie of moviesList">
+    <a *ngIf="movie.Poster != 'N/A'" [routerLink]="['/movie', movie.imdbID]" class="movieLink">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{movie.Title}}</mat-card-title>
+          <mat-card-subtitle>{{movie.Year}}</mat-card-subtitle>
+        </mat-card-header>
+        <img matLine src="{{ movie.Poster }}" alt="{{movie.Title}}">
+        <mat-card-content>
+        </mat-card-content>
+      </mat-card>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MoviesService } from '../movies.service';
+import { Movie } from '../movies.model';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -31,7 +32,13 @@ export class SearchMovieComponent {
     this.searchFormControl.valueChanges.forEach(
       (value: string) => this.searchResult = value
     );
-
-    this.moviesList = this.movies.getConfig(this.searchResult);
+    this.movies.getMovieList(this.searchResult).subscribe(
+      (data: Movie) => {
+        this.moviesList = data['Search'];
+      },
+      (error) => {
+        console.log('error in search for new elements');
+      }
+    );
   }
 }
