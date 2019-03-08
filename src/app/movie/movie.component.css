@@ -4,3 +4,12 @@ color: rgba(0, 0, 0, 0.54);
 .example-card {
 max-width: 400px;
 }
+.movieLink{
+    background-color: lightseagreen;
+    color:white;
+}
+.mat-button{
+    background-color: lightslategray;
+    color: white;
+    fill: white;
+}

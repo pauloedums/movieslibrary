@@ -1,4 +1,4 @@
-<mat-grid-list cols="2" rowHeight="120vh">
+<mat-grid-list cols="3" rowHeight="120vh">
   <mat-grid-tile>
     <mat-card class="example-card">
       <img mat-card-image src="{{movie.Poster}}" alt="{{movie.Title}}">
@@ -7,68 +7,66 @@
         <p>{{movie.Plot}}</p>
       </mat-card-content>
       <mat-card-actions>
-        <a *ngIf="movie.Website !== 'N/A'" href="{{movie.Website}}" mat-button target="_blank">SITE</a>
+        <a *ngIf="movie.Website !== 'N/A'" href="{{movie.Website}}" mat-button target="_blank" class="movieLink">
+          <mat-icon>open_in_browser</mat-icon>
+          SITE</a>
+        <a [routerLink]="['/']" mat-button><mat-icon>search</mat-icon> Back to search</a>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile>
     <mat-list>
       <mat-list-item>
+        <mat-icon mat-list-icon>recent_actors</mat-icon>
         <h4 mat-line>Actors</h4>
         <p mat-line> {{ movie.Actors }} </p>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon>star</mat-icon>
+        <mat-icon mat-list-icon>movie_filter</mat-icon>
         <h4 mat-line>Awards</h4>
         <p mat-line> {{ movie.Awards }} </p>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <mat-icon>release</mat-icon>
+        <mat-icon mat-list-icon>new_releases</mat-icon>
         <h4 mat-line>Released</h4>
         <p mat-line> {{ movie.Released }} </p>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <mat-icon>rating</mat-icon>
+        <mat-icon mat-list-icon>grade</mat-icon>
         <h4 mat-line>Rating</h4>
         <p mat-line>IMDB: {{ movie.imdbRating }} </p>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <mat-icon>info</mat-icon>
+        <mat-icon mat-list-icon>timer</mat-icon>
         <h4 mat-line>Runtime</h4>
         <p mat-line>{{ movie.Runtime }} </p>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <mat-icon>info</mat-icon>
-        <h4 mat-line>Runtime</h4>
-        <p mat-line>{{ movie.Runtime }} </p>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <mat-icon>info</mat-icon>
+        <mat-icon mat-list-icon>language</mat-icon>
         <h4 mat-line>Language</h4>
         <p mat-line>{{ movie.Language }} </p>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <mat-icon>info</mat-icon>
+        <mat-icon mat-list-icon>movie_creation</mat-icon>
         <h4 mat-line>Genre</h4>
         <p mat-line>{{ movie.Genre }} </p>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <mat-icon>info</mat-icon>
+        <mat-icon mat-list-icon>business</mat-icon>
         <h4 mat-line>Production</h4>
         <p mat-line>{{ movie.Production }} </p>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
-        <mat-icon>info</mat-icon>
         <h4 mat-line>Box Office</h4>
         <p mat-line>{{ movie.BoxOffice }} </p>
+        <mat-icon mat-list-icon>attach_money</mat-icon>
       </mat-list-item>
     </mat-list>
   </mat-grid-tile>

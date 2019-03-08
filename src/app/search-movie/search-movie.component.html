@@ -1,8 +1,9 @@
 <div class="example-container">
-  <h1>Movie Library</h1>
+  <h1>Movie Library - IMDB</h1>
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Search for movies" [formControl]="searchFormControl" [errorStateMatcher]="matcher" (keyup)="onKey($event)">
+      <mat-icon matSuffix>search</mat-icon>
       <mat-error *ngIf="searchFormControl.hasError('required')">
         Movie title is <strong>required</strong>
       </mat-error>
