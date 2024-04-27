@@ -1,6 +1,6 @@
 # Movie Library - IMDB
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.\
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.(now updated to angular 17)\
 Using the IMDB Api(`http://www.omdbapi.com/`) for test purposes. 
 
 ## Installing the project
