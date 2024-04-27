@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { UntypedFormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MoviesService } from '../movies.service';
 import { Movie } from '../movies.model';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -23,7 +23,7 @@ export class SearchMovieComponent {
   constructor(public movies: MoviesService) {}
 
   searchResult: string;
-  searchFormControl = new FormControl('', [
+  searchFormControl = new UntypedFormControl('', [
     Validators.required,
   ]);
   matcher = new MyErrorStateMatcher();
